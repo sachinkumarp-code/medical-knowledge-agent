@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import os
 
 st.title("Medical AI Assistant")
 
@@ -20,7 +21,8 @@ if user_input:
     st.session_state.messages.append({"role": "user", "content": user_input})
     
     # Send it to your FastAPI backend
-    response = requests.post("http://127.0.0.1:8000/chat", json={"question": user_input})
+    API_URL = os.getenv("BACKEND_URL", "http://127.0.0.1:8000/chat")
+    response = requests.post(API_URL, json={"question": user_input})
     ai_answer = response.json()["answer"]
     
     # Print and save the AI's answer

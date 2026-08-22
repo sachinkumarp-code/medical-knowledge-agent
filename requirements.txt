@@ -9,3 +9,4 @@ pandas
 sqlalchemy
 pypdf
 python-dotenv
+langchain-community
