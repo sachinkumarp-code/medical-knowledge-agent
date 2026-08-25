@@ -1,8 +1,18 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from src.agent import agent
+from fastapi.middleware.cors import CORSMiddleware
+from src.agent import agent # Your LangGraph agent
 
 app = FastAPI()
+
+# --- SECURITY: CORS CONFIGURATION ---
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://13.53.70.238:3000"], # Whitelists your Next.js frontend
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class ChatRequest(BaseModel):
     question: str

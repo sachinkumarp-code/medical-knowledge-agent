@@ -1,0 +1,11 @@
+[theme]
+# Professional AI Minimalist Theme
+base="dark"
+primaryColor="#D4D4D4"
+backgroundColor="#111111"
+secondaryBackgroundColor="#1A1A1A"
+textColor="#E0E0E0"
+font="sans serif"
+
+[client]
+toolbarMode = "minimal"
